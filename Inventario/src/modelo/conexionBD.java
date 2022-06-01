@@ -13,18 +13,18 @@ public class conexionBD {
     static Statement st = null;
     static ResultSet rs = null;
 
-    public static Connection Conexion(Connection conn) {
+    public static Connection Conexion(Connection con) {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             try {
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventario_1", "root", " ");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventario_1", "root", "");
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "No se puedo conectar a la base de datos" + ex);
             }
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "No se puedo encontrar el driver");
         }
-        return conn;
+        return con;
     }
 
     public static void cerrar() throws SQLException {
@@ -32,4 +32,6 @@ public class conexionBD {
             con.close();
         }
     }
+    
+    
 }
