@@ -52,7 +52,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnCrud.setText("CURD");
+        btnCrud.setText("AGREGAR MARCAS Y MODELOS");
         btnCrud.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrudActionPerformed(evt);

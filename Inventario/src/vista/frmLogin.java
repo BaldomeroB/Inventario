@@ -4,6 +4,7 @@ package vista;
 import modelo.operacionUsuario;
 import controlador.Login;
 import java.awt.Color;
+import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class frmLogin extends javax.swing.JFrame {
@@ -14,7 +15,9 @@ public class frmLogin extends javax.swing.JFrame {
     
     public frmLogin() {
         initComponents();
+        this.setResizable(false );
         this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     
@@ -23,7 +26,7 @@ public class frmLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        txtLogin = new javax.swing.JTextField();
+        txtUser = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
@@ -47,16 +50,16 @@ public class frmLogin extends javax.swing.JFrame {
         bg.setPreferredSize(new java.awt.Dimension(800, 500));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtLogin.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        txtLogin.setForeground(new java.awt.Color(153, 153, 153));
-        txtLogin.setText("Ingrese su nombre de usuario");
-        txtLogin.setBorder(null);
-        txtLogin.addActionListener(new java.awt.event.ActionListener() {
+        txtUser.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtUser.setForeground(new java.awt.Color(153, 153, 153));
+        txtUser.setText("Ingrese su nombre de usuario");
+        txtUser.setBorder(null);
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLoginActionPerformed(evt);
+                txtUserActionPerformed(evt);
             }
         });
-        bg.add(txtLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 350, 20));
+        bg.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 350, 20));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jLabel1.setText("USUARIO");
@@ -147,15 +150,12 @@ public class frmLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtLoginActionPerformed
-    void mensaje(){
-    if(txtLogin.getText().length()<=0){
-    JOptionPane.showMessageDialog(this,"No a Indicado el Usuario","Campo vacio",1);
-    }}
+    }//GEN-LAST:event_txtUserActionPerformed
+    
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        String user = txtLogin.getText();
+        String user = txtUser.getText();
         char passArray[] = txtPassword.getPassword();
         String pass = new String(passArray);
         if (!"".equals(user) || !"".equals(pass)) {
@@ -174,7 +174,7 @@ public class frmLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
     void limpiar(){
-        txtLogin.setText("");
+        txtUser.setText("");
         txtPassword.setText("");
     }
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -240,8 +240,8 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField txtLogin;
     private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 
 }

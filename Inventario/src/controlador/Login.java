@@ -1,6 +1,8 @@
 
 package controlador;
 
+import java.sql.ResultSet;
+
 
 public class Login {
     private int id_usuario;
@@ -51,5 +53,4 @@ public class Login {
         this.pass = pass;
     }
     
-   
 }

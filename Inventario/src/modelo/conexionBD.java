@@ -9,27 +9,27 @@ import javax.swing.JOptionPane;
 
 public class conexionBD {
 
-    static Connection con = null;
+    static Connection conn = null;
     static Statement st = null;
     static ResultSet rs = null;
 
-    public static Connection Conexion(Connection con) {
+    public static Connection Conexion(Connection conn) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             try {
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventario_1", "root", "");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventario_1", "root", "");
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "No se puedo conectar a la base de datos" + ex);
             }
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "No se puedo encontrar el driver");
         }
-        return con;
+        return conn;
     }
 
     public static void cerrar() throws SQLException {
-        if (con != null) {
-            con.close();
+        if (conn != null) {
+            conn.close();
         }
     }
     
